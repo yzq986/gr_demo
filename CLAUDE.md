@@ -15,16 +15,23 @@ Every time a coding task finishes (implementation complete, no more pending chan
 
 Do not ask for confirmation — just do it after each coding round.
 
-## README Principles of division of labor
+## Documentation division of labor
 
-There are two READMEs for each stage, each performing its own duties without duplication of content:
+Different documentation layers serve different readers and should not duplicate
+content:
 
 | Location | Audience | Content |
 |------|------|------|
-| `<phase>/README.md` (`rl/`, `ntp/`, `tokenizer/`, `model/`) | People who change the code | FileDescription, interfaces, implementation details, verified super parameters, pitfall records |
-| `experiments/logs/<phase>/README.md` | DesignExperiment people | EXP list, current SOTA, next ExperimentDirection |
+| `README.md` / `README.zh.md` | New visitors | Project positioning, quickstart, headline results, and documentation entry points |
+| `<phase>/README.md` (`rl/`, `ntp/`, `tokenizer/`, `model/`, etc.) | People who change the code | Module responsibilities, interfaces, data contracts, implementation details, verified hyperparameters, and pitfalls |
+| `experiments/logs/<phase>/README.md` | People who design experiments | Current best results, experiment list, next directions, and metric definitions |
+| `docs/` | Long-term maintainers | Architecture decisions, engineering records, and stable documentation |
 
-The two refer to each other without duplication. After each code change or experiment is completed, the corresponding two READMEs must be updated.
+For a code change, update the corresponding `<phase>/README.md` when module
+interfaces, data contracts, implementation details, or pitfalls change. For a
+completed experiment, update `experiments/logs/<phase>/exp-NNN.md`,
+`experiments/logs/<phase>/README.md`, and only promote headline results to the
+root README files when they are useful to new visitors.
 
 ## gr conda env standard configuration
 
@@ -178,10 +185,10 @@ Trampled: EXP-044 TO-RoPE, timestamps are passed in the code but all are 0 (pipe
       --checkpoint experiments/ntp_checkpoints/<name> \
       --n_recall 1000
   ```
-- Each time a new experiment is run, three documents are updated after completing the eval:
+- Each time a new experiment is run, update the experiment records after completing the full eval:
   1. `experiments/logs/<phase>/exp-NNN.md` — detailed record of a single experiment
   2. `experiments/logs/<phase>/README.md` — phase summary SOTA
-  3. `README.md` — root directory homepage
+  3. `README.md` / `README.zh.md` — only when the result is a headline result useful to new visitors
 - The eval keys in `train_meta.json` are `item_recall@10` / `item_recall@500` (with `@`, not `_`).
 
 ## Research Agent Mode
@@ -267,7 +274,7 @@ if deduped:
 
 5. Complete:
    a. Execute post_hook (such as EVAL_MID_CHECKPOINTS: serial eval ep1/ep2, find the optimal checkpoint)
-   b. Read train_meta.json and update three places: `experiments/logs/<phase>/exp-NNN.md`, `experiments/logs/<phase>/README.md` SOTA line, `README.md` root directory homepage
+   b. Read train_meta.json and update `experiments/logs/<phase>/exp-NNN.md`, `experiments/logs/<phase>/README.md` SOTA line, and only promote headline results to the root README files
    c. git add experiments/ && git commit -m "EXP-XXX complete: ..." && ./push.sh
    d. Read queue.txt, find the next unfinished experiment, start nohup, and update queue_state.json
    e. If the queue is empty: change state to done, inform the user, and keep cron alive.

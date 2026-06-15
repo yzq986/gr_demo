@@ -256,15 +256,25 @@ The code is released under the [MIT License](LICENSE).
 | Engineering log | [docs/engineering/README.md](docs/engineering/README.md) | [docs/engineering/README.zh.md](docs/engineering/README.zh.md) |
 | Experiment logs | [experiments/logs/README.md](experiments/logs/README.md) | - |
 
+## Documentation Roles
+
+| File | Reader | Content |
+|------|--------|---------|
+| `README.md` / `README.zh.md` | New visitor | Project positioning, quickstart, headline results, and documentation entry points. |
+| `<phase>/README.md` | Code contributor | Module responsibilities, interfaces, data contracts, implementation details, and pitfalls. |
+| `experiments/logs/<phase>/README.md` | Experiment planner | Current best results, completed runs, next directions, and metric definitions. |
+| `docs/` | Long-term maintainer | Architecture decisions, engineering records, and stable documentation. |
+
 ## Reporting Results
 
-When an experiment completes, update the three places that serve different readers:
+When an experiment completes, update the experiment-facing record first, then
+promote only headline results to the project homepage:
 
 | File | Reader | Content |
 |------|--------|---------|
 | `experiments/logs/<phase>/exp-NNN.md` | Experiment reviewer | Background, hypothesis, design, results, analysis, next steps. |
 | `experiments/logs/<phase>/README.md` | Research planner | Current best table, completed runs, and next experiments. |
-| `README.md` | New visitor | Only headline results and representative links. |
+| `README.md` / `README.zh.md` | New visitor | Only headline results and representative links. |
 
 ## Notes
 

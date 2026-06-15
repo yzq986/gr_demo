@@ -235,6 +235,16 @@ echo "run_config.sh experiments/configs/exp-NNN.yaml  /tmp/expNNN.log  exp-NNN c
 | `experiments/logs/<phase>/README.md` | 设计实验的人 | 当前最好结果、实验列表、下一步方向和指标口径。 |
 | `docs/` | 长期维护者 | 架构决策、工程记录和稳定文档。 |
 
+## 实验结果更新
+
+实验完成后，先更新面向实验复盘的记录，再把最重要的 headline 结果提升到项目首页：
+
+| 文件 | 读者 | 内容 |
+|------|------|------|
+| `experiments/logs/<phase>/exp-NNN.md` | 实验复盘者 | 背景、假设、设计、结果、分析和下一步。 |
+| `experiments/logs/<phase>/README.md` | 实验规划者 | 当前最好结果、已完成实验和下一步方向。 |
+| `README.md` / `README.zh.md` | 新访客 | 只放 headline 结果和代表性链接。 |
+
 ## 注意事项
 
 - 仓库根目录直接加入 `PYTHONPATH`，模块导入不带包名前缀。

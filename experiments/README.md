@@ -64,10 +64,11 @@ Training wall time is recorded in `train_meta.json` as `train.wall_time_s`. Full
 
 ## Reporting
 
-After a completed experiment, update:
+After a completed experiment, update the experiment-facing records first:
 
 1. `experiments/logs/<phase>/exp-NNN.md`
 2. `experiments/logs/<phase>/README.md`
-3. `README.md`
 
-Keep implementation details in the relevant module README, not in experiment summaries.
+Promote only headline results and representative links to `README.md` /
+`README.zh.md`. Keep implementation details in the relevant module README, not
+in experiment summaries.

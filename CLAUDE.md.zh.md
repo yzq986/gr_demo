@@ -15,16 +15,21 @@ Every time a coding task finishes (implementation complete, no more pending chan
 
 Do not ask for confirmation — just do it after each coding round.
 
-## README 分工原则
+## 文档分工原则
 
-各阶段有两个 README，各司其职，不重复内容：
+不同文档层面服务不同读者，互相引用但不重复内容：
 
 | 位置 | 受众 | 内容 |
 |------|------|------|
-| `<phase>/README.md`（`rl/`, `ntp/`, `tokenizer/`, `model/`）| 改代码的人 | 文件说明、接口、实现细节、已验证超参、踩坑记录 |
-| `experiments/logs/<phase>/README.md` | 设计实验的人 | EXP 列表、当前 SOTA、下一步实验方向 |
+| `README.md` / `README.zh.md` | 新访客 | 项目定位、快速开始、核心结果和文档入口 |
+| `<phase>/README.md`（`rl/`, `ntp/`, `tokenizer/`, `model/` 等）| 改代码的人 | 模块职责、接口、数据契约、实现细节、已验证超参和踩坑记录 |
+| `experiments/logs/<phase>/README.md` | 设计实验的人 | 当前最好结果、实验列表、下一步方向和指标口径 |
+| `docs/` | 长期维护者 | 架构决策、工程记录和稳定文档 |
 
-两者互相引用，不重复。每次代码变更或实验完成后，对应的两个 README 都要更新。
+代码变更时，只有在模块接口、数据契约、实现细节或踩坑记录变化时才更新对应
+`<phase>/README.md`。实验完成时，更新
+`experiments/logs/<phase>/exp-NNN.md` 和
+`experiments/logs/<phase>/README.md`；只有对新访客有价值的 headline 结果才提升到根目录 README。
 
 ## gr conda env 标准配置
 
@@ -178,10 +183,10 @@ echo "run_config.sh experiments/configs/exp-NNN.yaml  /tmp/expNNN.log  exp-NNN c
       --checkpoint experiments/ntp_checkpoints/<name> \
       --n_recall 1000
   ```
-- 每次新实验跑完，补全量 eval 后更新三处文档：
+- 每次新实验跑完，补全量 eval 后更新实验记录：
   1. `experiments/logs/<phase>/exp-NNN.md` — 单实验详细记录
   2. `experiments/logs/<phase>/README.md` — 阶段汇总 SOTA
-  3. `README.md` — 根目录 homepage
+  3. `README.md` / `README.zh.md` — 只有对新访客有价值的 headline 结果才提升到首页
 - `train_meta.json` 里的 eval keys 是 `item_recall@10` / `item_recall@500`（带 `@`，不是 `_`）。
 
 ## Research Agent Mode
@@ -267,7 +272,7 @@ if deduped:
 
 5. 完成：
    a. 执行 post_hook（如 EVAL_MID_CHECKPOINTS：串行 eval ep1/ep2，找最优 checkpoint）
-   b. 读 train_meta.json，更新三处：`experiments/logs/<phase>/exp-NNN.md`、`experiments/logs/<phase>/README.md` SOTA 行、`README.md` 根目录 homepage
+   b. 读 train_meta.json，更新 `experiments/logs/<phase>/exp-NNN.md`、`experiments/logs/<phase>/README.md` SOTA 行；只有 headline 结果才提升到根目录 README
    c. git add experiments/ && git commit -m "EXP-XXX complete: ..." && ./push.sh
    d. 读 queue.txt，找下一个未完成的实验，nohup 启动，更新 queue_state.json
    e. 如队列已空：state 改为 done，告知用户，保持 cron 存活
