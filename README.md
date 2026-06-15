@@ -43,6 +43,20 @@ graph LR
 
 The project treats recommendation research as an autonomous experimentation problem. `research/` defines an inbox/outbox protocol for human-agent collaboration, paper notes, status tracking, and decision records. `experiments/run_exp.py` expands YAML configs, checks duplicate baselines, runs variants, and can commit completed experiment artifacts. `experiments/queue.txt` and `run_config.sh` support asynchronous long-running jobs. This is the most important part of the repository: the GR results below are evidence that the research loop can drive a nontrivial multi-stage system.
 
+## Related Agentic Frameworks
+
+`nanoGenRec` is not a replacement for general-purpose agent runtimes. It is a
+repo-native research operating system for one landed ML research line: durable
+paper memory, experiment configs, queues, full-eval contracts, failure records,
+and headline result promotion are all kept in the same workspace as the code.
+
+| Project family | Examples | Main focus | How nanoGenRec differs |
+|----------------|----------|------------|------------------------|
+| Multi-agent orchestration | [AutoGen](https://github.com/microsoft/autogen), [LangGraph](https://github.com/langchain-ai/langgraph), [CrewAI](https://github.com/crewAIInc/crewAI) | Build reusable agent workflows, conversations, tools, and state machines. | Uses simple repository artifacts instead of a general runtime; optimized for experiment traceability, not agent app deployment. |
+| Coding agents | [SWE-agent](https://github.com/swe-agent/swe-agent), [OpenHands](https://github.com/OpenHands/openhands) | Let agents inspect repositories, edit code, run tests, and solve software tasks. | Adds experiment governance around long-running ML jobs, full-recall eval, and research decisions. |
+| Research/report agents | [GPT Researcher](https://github.com/assafelovic/gpt-researcher), [Agent Laboratory](https://github.com/SamuelSchmidgall/AgentLaboratory) | Literature review, research planning, experiment assistance, and report writing. | Preserves a concrete GR experiment lineage with configs, invalid runs, phase summaries, and reusable evaluation contracts. |
+| Automated science systems | [The AI Scientist](https://github.com/sakanaai/ai-scientist), [AI Scientist-v2](https://github.com/sakanaai/ai-scientist-v2) | End-to-end idea generation, code, experiments, paper writing, and review loops. | Focuses on human-agent co-production of a production-grounded recommender stack rather than fully autonomous paper generation. |
+
 ## Quantitative Snapshot
 
 | Dimension | Scale / Result | Source |

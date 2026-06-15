@@ -42,6 +42,20 @@ graph LR
 
 这个仓库把推荐研究视为一个可以被 AI agent 编排的自主实验问题。`research/` 提供人类和 agent 协作的 inbox/outbox 协议、paper notes、状态面板和决策记录；`experiments/run_exp.py` 负责展开 YAML config、检查重复 baseline、运行 variants，并在实验完成后提交结果；`experiments/queue.txt` 和 `run_config.sh` 支持长任务异步排队。这是 repo 最重要的部分；下面的 GR 数字主要证明这套 research loop 能驱动一个非平凡的多阶段系统。
 
+## 相关 Agentic Frameworks
+
+`nanoGenRec` 不是通用 agent runtime 的替代品。它更像一个面向真实 ML
+research line 的 repo-native research operating system：paper memory、实验
+config、队列、全量评测契约、失败记录和 headline 结果提升，都和代码放在同一个
+workspace 里。
+
+| 项目类型 | 代表项目 | 主要关注点 | nanoGenRec 的区别 |
+|----------|----------|------------|-------------------|
+| Multi-agent orchestration | [AutoGen](https://github.com/microsoft/autogen), [LangGraph](https://github.com/langchain-ai/langgraph), [CrewAI](https://github.com/crewAIInc/crewAI) | 构建可复用的 agent workflow、对话、工具和状态机。 | 使用简单的仓库文件作为状态层，优化目标是实验可追踪性，而不是部署通用 agent 应用。 |
+| Coding agents | [SWE-agent](https://github.com/swe-agent/swe-agent), [OpenHands](https://github.com/OpenHands/openhands) | 让 agent 读代码、改代码、跑测试、解决软件任务。 | 额外关注长时间 ML 实验、full-recall eval、结果解释和研究决策记录。 |
+| Research/report agents | [GPT Researcher](https://github.com/assafelovic/gpt-researcher), [Agent Laboratory](https://github.com/SamuelSchmidgall/AgentLaboratory) | 文献调研、研究规划、实验辅助和报告写作。 | 保留一条具体 GR 实验谱系，包括 configs、invalid runs、阶段汇总和可复用评测契约。 |
+| Automated science systems | [The AI Scientist](https://github.com/sakanaai/ai-scientist), [AI Scientist-v2](https://github.com/sakanaai/ai-scientist-v2) | 自动生成 idea、写代码、跑实验、写论文和模拟评审。 | 关注 human-agent co-production，把生产场景里的推荐系统研究落成可审计的开源框架，而不是全自动生成论文。 |
+
 ## 量化概览
 
 | 维度 | 规模 / 结果 | 来源 |
