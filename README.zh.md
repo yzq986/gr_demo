@@ -6,7 +6,7 @@
 
 [English](README.md) | [中文](README.zh.md)
 
-[论文 PDF](paper/nanogenrec.pdf) | [arXiv source bundle](paper/nanogenrec-arxiv-source.tar.gz) | [打开 Colab 复现](https://colab.research.google.com/github/yzq986/nanoGenRec/blob/master/public_benchmarks/nanogenrec_colab.ipynb)
+[技术报告 PDF](paper/nanogenrec.pdf) | [打开 Colab 复现](https://colab.research.google.com/github/yzq986/nanoGenRec/blob/master/public_benchmarks/nanogenrec_colab.ipynb)
 
 `nanoGenRec` 是一个面向生成式推荐的 agentic research framework。
 

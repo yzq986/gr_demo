@@ -8,7 +8,7 @@ This is a local approximation of the public Stanford Agentic Reviewer rubric. It
 
 Estimated overall score: **6.2 / 10**
 
-This is a plausible workshop/arXiv technical-report score, but not yet a strong conference-paper score.
+This is a plausible workshop or open-source technical-report score, but not yet a strong conference-paper score.
 
 | Dimension | Score | Rationale |
 |-----------|-------|-----------|
@@ -51,4 +51,4 @@ Remaining blockers for a stronger score:
 
 - A public MovieLens smoke path now exists, but it is not yet a competitive benchmark section.
 - Production-scale numbers remain non-reproducible outside the private data.
-- The framework still needs stronger public-dataset runs if the paper targets a venue beyond arXiv/technical report.
+- The framework still needs stronger public-dataset runs if the paper targets a venue beyond a technical report.

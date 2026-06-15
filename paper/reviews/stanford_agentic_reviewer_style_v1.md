@@ -12,7 +12,7 @@ contextualization relative to prior work.
 
 Estimated overall score: **7.3 / 10**
 
-This is now a credible arXiv technical-report score and a plausible workshop
+This is now a credible open-source technical-report score and a plausible workshop
 artifact paper score. It is still not yet a strong top-conference research
 paper because the main contribution is a framework and empirical landing record
 rather than a new algorithmic idea.
@@ -41,11 +41,11 @@ rather than a new algorithmic idea.
 2. The public tokenizer path uses hashed title/genre/co-occurrence features, not the Qwen/Faiss production tokenizer.
 3. Production-scale results remain non-reproducible without private behavior data.
 4. The paper would benefit from one figure or diagram showing the public and production paths sharing the same interfaces.
-5. The arXiv source bundle may need regeneration after the latest edits.
+5. The PDF and release links may need regeneration after the latest edits.
 
 ## Publication Readiness Estimate
 
 - **Open-source release**: nearly ready after README/link/license sanity checks.
-- **arXiv technical report**: close; requires final PDF inspection, source-bundle refresh, and one human pass over author/citation/privacy details.
+- **Technical report / open-source case study**: close; requires final PDF inspection and one human pass over author/citation/privacy details.
 - **Workshop artifact paper**: plausible if framed as a reproducibility framework.
 - **Top-conference research paper**: still weak without public baselines, broader public datasets, or a sharper algorithmic contribution.

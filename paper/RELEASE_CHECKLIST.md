@@ -1,13 +1,13 @@
-# Release and arXiv Gap Checklist
+# Open-Source Release Checklist
 
 Last updated: 2026-06-12
 
 ## Current Status
 
-The repository is close to a public open-source release and arXiv technical
-report. The strongest release anchor is the agentic research framework and
-production-grounded experiment lineage. The public MovieLens 1M Colab-T4 path
-is retained as an execution proof for the released code path.
+The repository is positioned as a public open-source project, technical report,
+and engineering case study. The strongest release anchor is the agentic research
+framework and production-grounded experiment lineage. The public MovieLens 1M
+Colab-T4 path is retained as an execution proof for the released code path.
 
 ## Must Do Before Open-Source Promotion
 
@@ -19,19 +19,17 @@ is retained as an execution proof for the released code path.
 | Public quickstart check | Done | Synthetic public benchmark and public benchmark test passed in a clean temporary workspace. |
 | Public benchmark artifacts | Ready | MovieLens 1M Colab-T4 result is checked in and linked. |
 | Dependency clarity | Done | README now includes `python -m pip install -r requirements.txt`; `PyYAML` and `pytest` are listed. |
-| Badges / metadata | Done for current links | Added MIT, Colab, and Python badges; arXiv badge should wait for an arXiv ID. |
+| Badges / metadata | Done for current links | Added MIT, Colab, and Python badges. |
 
-## Must Do Before arXiv Submission
+## Technical Report Hygiene
 
 | Item | Status | Notes |
 |------|--------|-------|
 | Author metadata | Confirmed | Author block: Ziqing Ye, `yeziqing986@gmail.com`. |
 | Numeric consistency check | Passed | `python3 paper/check_paper_consistency.py` passes. |
 | PDF compile | Passed with minor warnings | Full `pdflatex -> bibtex -> pdflatex -> pdflatex` completes; one small overfull remains. |
-| Source bundle | Refreshed | `paper/nanogenrec-arxiv-source.tar.gz` was regenerated after the latest edits. |
 | Manual PDF inspection | Needed | Check page breaks, table placement, and figure readability in `paper/nanogenrec.pdf`. |
-| Citation audit | Needed | Verify all BibTeX titles, authors, years, and arXiv IDs manually. |
-| AI-use policy | Needed | arXiv itself does not require a special statement, but any venue version may. |
+| Citation audit | Needed | Verify all BibTeX titles, authors, years, preprint IDs, and URLs manually. |
 | Claim-boundary review | Mostly ready | Paper now clearly says framework + landing record, not new algorithm. |
 
 ## What Would Make the Paper Stronger
@@ -52,8 +50,8 @@ The updated local Stanford Agentic Reviewer-style score is **7.5 / 10** in
 
 Interpretation:
 
-- Strong enough for an arXiv technical report.
-- Plausible as a workshop artifact/framework paper.
+- Strong enough as an open-source technical report.
+- Plausible as a workshop artifact/framework paper if later submission is desired.
 - Still below a strong top-conference research paper because the contribution is
   framework landing rather than algorithmic novelty, and public baselines are
   not yet included.

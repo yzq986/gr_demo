@@ -71,4 +71,4 @@ target_sid_found_rate=0.2
 - Confirm author metadata and email.
 - Manually inspect the compiled PDF.
 - Manually audit BibTeX citation correctness.
-- Decide whether to add public baselines before arXiv submission.
+- Decide whether to add more public baselines before any future workshop or journal submission.

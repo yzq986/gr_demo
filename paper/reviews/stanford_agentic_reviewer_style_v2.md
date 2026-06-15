@@ -23,7 +23,7 @@ leaderboard result.
 | Claim support | 7.8 | Production claims are checked against logs, and public MovieLens results now include baselines. |
 | Experimental soundness | 7.5 | The paper now reports both a public GR path and simple public baselines, including a stronger ItemKNN reference. |
 | Clarity | 7.6 | The stage-level table and shared-interface figure make the system contribution easier to audit. |
-| Community value | 8.0 | Code, Colab notebook, baselines, logs, release scanner, and arXiv bundle improve artifact usefulness. |
+| Community value | 8.0 | Code, Colab notebook, baselines, logs, and release scanner improve artifact usefulness. |
 | Prior-work context | 6.8 | Industrial GR positioning is clear; public recommender-framework/baseline positioning could still be broader. |
 
 ## Main Remaining Weaknesses
@@ -37,6 +37,6 @@ leaderboard result.
 ## Publication Readiness
 
 - **Open-source release**: strong, pending human license/author review.
-- **arXiv technical report**: strong enough, pending manual PDF and citation audit.
+- **Technical report / open-source case study**: strong enough, pending manual PDF and citation audit.
 - **Workshop artifact/framework paper**: plausible.
 - **Top-conference research paper**: still needs stronger public baselines, broader datasets, or an algorithmic contribution.
